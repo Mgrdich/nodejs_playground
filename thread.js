@@ -19,6 +19,7 @@ crypto.pbkdf2('a','b',100000, 512, 'sha512',() => {
     console.log('4:', Date.now() - start);
 });
 
+// max of the thread pool so it have to wait to get emptied
 crypto.pbkdf2('a','b',100000, 512, 'sha512',() => {
     console.log('5:', Date.now() - start);
 });
