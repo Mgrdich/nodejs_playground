@@ -1,3 +1,8 @@
+// Libuv node thread pool size 
+// default is 4
+process.env.UV_THREADPOOL_SIZE = 2;
+
+
 const crypto = require('crypto');
 
 const start = Date.now();
