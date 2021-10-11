@@ -1,5 +1,6 @@
 const https = require('https');
 const crypto = require('crypto');
+const fs = require('fs');
 
 const start = Date.now();
 
@@ -23,3 +24,15 @@ function doHash() {
     });
 }
 
+
+doRequest();
+
+fs.readFile('multitask.js','utf8',function(){
+    console.log('FS:',Date.now() - start);
+});
+
+doHash()
+doHash()
+doHash()
+doHash()
+doHash()
