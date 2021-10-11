@@ -1,13 +1,15 @@
 const cluster = require('cluster');
-const express = require("express");
+const totalCPUs = require('os').cpus().length;
+
 
 if (cluster.isMaster) {
-    cluster.fork();
-    cluster.fork();
-    cluster.fork();
-    cluster.fork();
+    console.log(`Master ${process.pid} is running`);
+    for (let i = 0; i < totalCPUs; i++) {
+        cluster.fork();
+    }
 } else {
     // child mode
+    console.log(`Child  ${process.pid} is running`);
 
     const express = require('express');
     const app = express();
