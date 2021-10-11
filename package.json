@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:Mgrdich/nodejs_playground.git",
   "author": "Mgo <mgotm13@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
