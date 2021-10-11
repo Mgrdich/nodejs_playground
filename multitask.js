@@ -25,13 +25,16 @@ function doHash() {
 }
 
 
+// this does not work with the thread pool
 doRequest();
 
+// this get assigned to the thread pool but it geyt switched
+// because of the thread pool expectation
+// so the other hash take its place
 fs.readFile('multitask.js','utf8',function(){
     console.log('FS:',Date.now() - start);
 });
 
-doHash()
 doHash()
 doHash()
 doHash()
