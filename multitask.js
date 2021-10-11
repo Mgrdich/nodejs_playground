@@ -35,7 +35,7 @@ fs.readFile('multitask.js','utf8',function(){
     console.log('FS:',Date.now() - start);
 });
 
-doHash()
-doHash()
-doHash()
-doHash()
+doHash();
+doHash();
+doHash();
+doHash();
