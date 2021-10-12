@@ -1,7 +1,7 @@
 {
   "name": "nodejs_playground",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index_cluster.js",
   "repository": "git@github.com:Mgrdich/nodejs_playground.git",
   "author": "Mgo <mgotm13@gmail.com>",
   "license": "MIT",
