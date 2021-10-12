@@ -1,3 +1,6 @@
+// to make bench mark example seems more clear
+process.env.UV_THREADPOOL_SIZE = 1;
+
 const cluster = require('cluster');
 const crypto = require('crypto');
 const totalCPUs = require('os').cpus().length;
