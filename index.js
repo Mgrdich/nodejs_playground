@@ -1,4 +1,5 @@
 const cluster = require('cluster');
+const crypto = require('crypto');
 const totalCPUs = require('os').cpus().length;
 
 
@@ -14,19 +15,10 @@ if (cluster.isMaster) {
     const express = require('express');
     const app = express();
 
-    /***
-     * @description overclocking the event loop
-     * Thus blocking the server
-     * @param duration {Number}
-     * */
-    function doWorkOnCpu(duration) {
-        const start = Date.now()
-        while (Date.now() - start < duration) {}
-    }
-
     app.get('/', function (req, res) {
-        doWorkOnCpu(5000);
-        res.send('Hi there');
+        crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', () => {
+            res.send('Hi there');
+        });
     });
 
     app.get('/fast', function (req, res) {
