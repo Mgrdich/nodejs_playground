@@ -5,25 +5,13 @@ const {Worker} = require('worker_threads');
 const app = express();
 
 app.get('/', function (req, res) {
-   const worker = new Worker(function (){
-      // context closure is not available
-
-       this.onmessage = function (param) {
-           // Computationally expensive
-           let counter = 0;
-           while (counter <1e9) {
-               counter++
-           }
-           postMessage(counter);
-       };
-
-   });
+   const worker = new Worker('./my_worker.js');
 
    worker.onmessage = function (myCounter) {
-       console.log(myCounter);
+       res.send('' + myCounter);
    };
 
-    worker.postMessage('');
+    // worker.postMessage({});
 });
 
 app.get('/fast', function (req, res) {
